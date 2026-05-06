@@ -9,8 +9,8 @@
   --netflix-red: #e50914;
 }
 
-.sidebar-width { width: 60px; }
-.main-content-margin { margin-left: 60px; }
+.sidebar-width { width: 64px; }
+.main-content-margin { margin-left: 64px; }
 
 @media (prefers-color-scheme: light) {
   :root {

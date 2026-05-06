@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 hero-vignette" />
 
-        <div className="absolute left-12 top-10 z-20 max-w-3xl text-white">
+        <div className="absolute left-10 top-10 z-20 max-w-3xl text-white sm:left-12">
           <div className="flex items-center gap-3">
             <Image src="/netflix.svg" alt="N" width={24} height={24} className="h-6 w-6" />
             <span className="text-xs font-bold uppercase tracking-[0.3em] opacity-80">Series</span>
@@ -32,9 +32,14 @@ export default function Hero() {
             <span className="text-sm font-semibold text-[#c63f43]">2B+ Streams</span>
           </div>
 
-          <div className="mt-6 flex items-center gap-4">
-            <button className="flex items-center gap-2 rounded-full bg-[#e50914] px-10 py-2.5 text-sm font-bold text-white shadow-[0_10px_20px_rgba(229,9,20,0.28)]">Play</button>
-            <button className="flex items-center gap-2 rounded-full bg-[#dcdcdc] px-8 py-2.5 text-sm font-bold text-black shadow-[0_8px_16px_rgba(0,0,0,0.35)]">Watch Trailer</button>
+          <div className="mt-7 flex items-center gap-4">
+            <button className="flex h-[50px] min-w-[150px] items-center justify-center gap-2 rounded-full bg-[#e50914] px-7 text-lg font-extrabold text-white shadow-[0_10px_20px_rgba(229,9,20,0.28)]">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-[0.63rem] leading-none text-[#e50914]">▶</span>
+              <span className="text-[1.95rem] leading-none">Play</span>
+            </button>
+            <button className="flex h-[50px] min-w-[184px] items-center justify-center rounded-full bg-[#4a4a4a] px-8 text-[1.6rem] font-extrabold leading-none text-white shadow-[0_8px_16px_rgba(0,0,0,0.35)]">
+              Watch Trailer
+            </button>
           </div>
         </div>
       </div>
