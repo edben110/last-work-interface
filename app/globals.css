@@ -23,6 +23,15 @@
   html, body, #__next {
     height: 100%;
   }
+  button {
+    border: 0;
+    outline: none;
+    appearance: none;
+  }
+  button:focus-visible {
+    outline: 2px solid rgba(229, 9, 20, 0.65);
+    outline-offset: 2px;
+  }
   body {
     background-color: var(--background);
     color: var(--foreground);
