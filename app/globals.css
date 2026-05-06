@@ -118,8 +118,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
-/* Hero exact sizing helpers */
-.hero-title { font-size: 6rem; line-height: 0.95; font-weight: 800; letter-spacing: -0.02em; }
+.hero-title { font-size: 3.75rem; line-height: 0.9; font-weight: 900; letter-spacing: -0.04em; }
 .hero-sub { letter-spacing: 0.35em; font-weight: 700; }
 
 

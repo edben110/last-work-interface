@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Row from "../components/Row";
 
@@ -11,11 +10,10 @@ const mockItems = Array.from({ length: 12 }).map((_, i) => ({
 export default function Home() {
   return (
     <div className="min-h-screen w-full">
-      <Header />
-      <main className="mx-auto max-w-7xl px-12 pt-32">
+      <main className="mx-auto max-w-7xl px-12 pt-0">
         <Hero />
 
-        <section className="mt-8">
+        <section className="mt-6">
           <Row title="New this week" items={mockItems} />
           <Row title="Trending Now" items={mockItems} />
           <Row title="Recommended" items={mockItems} />
