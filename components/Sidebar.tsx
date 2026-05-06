@@ -27,48 +27,27 @@ const icons = [
 
 export default function Sidebar() {
   const [active, setActive] = useState<string>("search");
-  const mainIcons = icons.filter((it) => it.id !== "shuffle");
-  const bottomIcon = icons.find((it) => it.id === "shuffle");
 
   return (
-    <aside className="fixed left-0 top-0 z-50 flex h-full w-[58px] flex-col border-r border-white/10 bg-black py-6">
-      <nav className="flex flex-1 flex-col items-center text-[#9ca3af]">
-        <div className="flex w-full flex-col items-center gap-[22px]">
-          {mainIcons.map((it) => (
-            <button
-              key={it.id}
-              onClick={() => setActive(it.id)}
-              title={it.label}
-              className={`group relative flex h-[38px] w-full items-center justify-center border-0 bg-transparent text-inherit transition-colors duration-150 hover:text-[#ff2a33] ${
-                active === it.id ? "text-[#ff2a33]" : ""
-              }`}
-            >
-              <span
-                className={`absolute right-0 h-[28px] w-[2px] rounded-full bg-[#ff2a33] transition-opacity duration-150 ${
-                  active === it.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                }`}
-              />
-              {it.svg}
-            </button>
-          ))}
-        </div>
-
-        {bottomIcon && (
+    <aside className="fixed left-0 top-0 z-50 flex h-full w-[58px] flex-col border-r border-black bg-black py-6">
+      <nav className="flex flex-1 flex-col items-center justify-center gap-[22px] text-[#9ca3af]">
+        {icons.map((it) => (
           <button
-            onClick={() => setActive(bottomIcon.id)}
-            title={bottomIcon.label}
-            className={`group relative mt-auto flex h-[38px] w-full items-center justify-center border-0 bg-transparent text-inherit transition-colors duration-150 hover:text-[#ff2a33] ${
-              active === bottomIcon.id ? "text-[#ff2a33]" : ""
+            key={it.id}
+            onClick={() => setActive(it.id)}
+            title={it.label}
+            className={`group relative flex h-[38px] w-full items-center justify-center border-0 bg-transparent text-inherit transition-all duration-200 hover:scale-110 hover:text-white ${
+              active === it.id ? "text-[#ff2a33]" : ""
             }`}
           >
             <span
-              className={`absolute right-0 h-[28px] w-[2px] rounded-full bg-[#ff2a33] transition-opacity duration-150 ${
-                active === bottomIcon.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+              className={`absolute right-0 h-[28px] w-[2px] rounded-full bg-[#ff2a33] transition-opacity duration-200 ${
+                active === it.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
               }`}
             />
-            {bottomIcon.svg}
+            {it.svg}
           </button>
-        )}
+        ))}
       </nav>
     </aside>
   );

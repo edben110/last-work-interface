@@ -32,12 +32,12 @@ export default function Hero() {
             <span className="text-sm font-semibold text-[#c63f43]">2B+ Streams</span>
           </div>
 
-          <div className="mt-7 flex items-center gap-4">
-            <button className="flex h-[50px] min-w-[150px] items-center justify-center gap-2 rounded-full bg-[#e50914] px-7 text-lg font-extrabold text-white shadow-[0_10px_20px_rgba(229,9,20,0.28)]">
+          <div className="mt-10 flex items-center gap-4">
+            <button className="flex h-[50px] min-w-[150px] items-center justify-center gap-2 rounded-full bg-[#e50914] px-7 text-lg font-extrabold text-white shadow-[0_10px_20px_rgba(229,9,20,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#c90b14] hover:shadow-[0_16px_28px_rgba(229,9,20,0.36)]">
               <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-[0.63rem] leading-none text-[#e50914]">▶</span>
               <span className="text-[1.95rem] leading-none">Play</span>
             </button>
-            <button className="flex h-[50px] min-w-[184px] items-center justify-center rounded-full bg-[#4a4a4a] px-8 text-[1.6rem] font-extrabold leading-none text-white shadow-[0_8px_16px_rgba(0,0,0,0.35)]">
+            <button className="flex h-[50px] min-w-[184px] items-center justify-center rounded-full bg-white/20 px-8 text-[1.6rem] font-extrabold leading-none text-white shadow-[0_8px_16px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/30 hover:shadow-[0_14px_24px_rgba(0,0,0,0.45)]">
               Watch Trailer
             </button>
           </div>
