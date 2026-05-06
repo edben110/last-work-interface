@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full">
         <Sidebar />
-        <div style={{ marginLeft: 72 }} className="min-h-screen">
+        <div style={{ marginLeft: 60 }} className="min-h-screen">
           {children}
         </div>
       </body>

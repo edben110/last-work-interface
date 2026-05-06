@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 z-40 netflix-header" style={{ left: 72, right: 0 }}>
+    <header className="fixed top-0 z-40 netflix-header" style={{ left: 60, right: 0 }}>
       <div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3">
         <div className="flex items-center gap-6">
           <Image src="/netflix.svg" alt="Logo" width={110} height={36} />

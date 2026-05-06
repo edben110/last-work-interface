@@ -9,8 +9,8 @@
   --netflix-red: #e50914;
 }
 
-.sidebar-width { width: 72px; }
-.main-content-margin { margin-left: 72px; }
+.sidebar-width { width: 60px; }
+.main-content-margin { margin-left: 60px; }
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -43,12 +43,27 @@
               linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%);
 }
 
+.hero-vignette {
+  background: linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.82) 22%, rgba(0,0,0,0.18) 52%, rgba(0,0,0,0.9) 100%),
+              linear-gradient(180deg, rgba(0,0,0,0.02) 58%, rgba(0,0,0,0.82) 100%);
+}
+
 .card-hover {
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 .card-hover:hover {
   transform: translateY(-6px) scale(1.06);
   box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.card-wrap {
+  box-shadow: 0 8px 14px rgba(0,0,0,0.28);
+  filter: saturate(1.08) brightness(0.96);
+}
+
+.card-wrap:hover {
+  box-shadow: 0 16px 28px rgba(0,0,0,0.68);
+  filter: saturate(1.12) brightness(1.02);
 }
 
 /* scrollbar hide */
@@ -73,7 +88,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%);
   opacity: 0;
   transition: opacity 160ms ease;
 }
@@ -82,8 +97,29 @@
 .card-play { background: var(--netflix-red); color: white; padding: 8px 14px; border-radius: 9999px; font-weight: 700; }
 .card-info { background: rgba(255,255,255,0.12); color: white; padding: 8px 12px; border-radius: 9999px; }
 
+/* Center play icon that appears on hover */
+.card-center-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.card-wrap:hover .card-center-play { opacity: 1; }
+.card-center-play .play-icon {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 9999px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
 /* Hero exact sizing helpers */
-.hero-title { font-size: 4.5rem; line-height: 0.95; font-weight: 800; }
+.hero-title { font-size: 6rem; line-height: 0.95; font-weight: 800; letter-spacing: -0.02em; }
 .hero-sub { letter-spacing: 0.35em; font-weight: 700; }
 
 
