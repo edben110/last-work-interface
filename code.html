@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Netflix Clone - Money Heist</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom Font Import (Inter as a Netflix Sans alternative) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-base">
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    /* Custom scrollbar for a cleaner Netflix look */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #141414;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #444;
+    }
+  </style>
+<style data-purpose="layout-styles">
+    .sidebar-width { width: 60px; }
+    .main-content-margin { margin-left: 60px; }
+    /* Hero Gradient Overlay */
+    .hero-gradient {
+      background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%),
+                  linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%);
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+<!-- BEGIN: Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full sidebar-width bg-black flex flex-col items-center py-6 z-50 border-r border-white/5" data-purpose="side-nav">
+<div class="mb-8">
+<img alt="Netflix" class="w-8 h-8 object-contain hidden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzYLReIuEtJ_ynerLP0MB2gMnPjRvb-pEtheMk1_A8kzV8pPOMdgoxo8oWxwR0ul2UTtqhVJWwsMg_-t3NzKWFMK2IY-J2tR8Mmac3xLmW8aP_0DdC8C755D4yFKHyhfCl6wt-6Q0rKhLkAA2uV9mApHMunu1IidalwAMDhzXkEBwT3CSb2zjH15MuygseIxQQwvcYA57eMD0s77Q6cgeL1ZaWqSZIoCx08Ewj4PQcXptdJZUC_h-2ltZ6knCJETeELYkCPWtgS40"/>
+<!-- Minimalist Logo or Icon if needed -->
+</div>
+<nav class="flex flex-col gap-8 text-gray-400">
+<button class="hover:text-white transition-colors" title="Search">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="text-red-600 border-r-2 border-red-600 pr-4 -mr-4" title="Home">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="hover:text-white transition-colors" title="TV Shows">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="hover:text-white transition-colors" title="Movies">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="hover:text-white transition-colors" title="New &amp; Popular">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="hover:text-white transition-colors" title="My List">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="hover:text-white transition-colors" title="Shuffle">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</nav>
+</aside>
+<!-- END: Sidebar Navigation -->
+<!-- BEGIN: Main Content Area -->
+<main class="main-content-margin min-h-screen flex flex-col">
+<!-- BEGIN: Hero Section -->
+<section class="relative h-[65vh] w-full overflow-hidden" data-purpose="hero-section">
+<!-- Hero Background Image -->
+<div class="absolute inset-0">
+<img alt="Money Heist Background" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 flex flex-col justify-center h-full px-12 pt-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-red-600 font-black text-xl">N</span>
+<span class="text-xs font-bold tracking-[0.3em] uppercase opacity-80">Series</span>
+</div>
+<h1 class="text-6xl font-black mb-4 uppercase tracking-tighter">Money Heist</h1>
+<p class="text-xs font-bold tracking-widest mb-6 opacity-70">PART 4</p>
+<div class="flex items-center gap-4 mb-8">
+<div class="flex items-center gap-1">
+<span class="bg-yellow-500 text-black text-[10px] font-bold px-1.5 py-0.5 rounded">IMDb</span>
+<span class="text-sm font-semibold">8.8/10</span>
+</div>
+<span class="text-sm font-semibold text-red-500">2B+ Streams</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-red-600 hover:bg-red-700 text-white px-10 py-2.5 rounded-full font-bold transition-all flex items-center gap-2">
+<svg class="h-5 w-5 fill-current" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path></svg>
+            Play
+          </button>
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-8 py-2.5 rounded-full font-bold transition-all">
+            Watch Trailer
+          </button>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Content Rows Container -->
+<div class="px-12 -mt-12 relative z-20 space-y-12 pb-20">
+<!-- Row: New this week -->
+<section data-purpose="row-new-this-week">
+<h2 class="text-xl font-bold mb-4">New this week</h2>
+<div class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-4">
+<!-- Poster 1: The Mother -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="The Mother" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 5% 65%;"/>
+</div>
+<!-- Poster 2: Blockbuster (Placeholder slice) -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Blockbuster" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 21% 65%;"/>
+</div>
+<!-- Poster 3: Redemption (Placeholder slice) -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Redemption" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 36% 65%;"/>
+</div>
+<!-- Poster 4: The Perfection (Placeholder slice) -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="The Perfection" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 51% 65%;"/>
+</div>
+<!-- Poster 5: Extraction (Placeholder slice) -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Extraction" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 66% 65%;"/>
+</div>
+<!-- Poster 6: Jagame Thandhiram (Placeholder slice) -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Jagame" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 81% 65%;"/>
+</div>
+<!-- Poster 7: Gray Man (Placeholder slice) -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105 relative">
+<img alt="Gray Man" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 96% 65%;"/>
+<!-- Slider Navigation Icon -->
+<div class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 p-2 rounded-full backdrop-blur-md cursor-pointer">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Row: Trending Now -->
+<section data-purpose="row-trending-now">
+<h2 class="text-xl font-bold mb-4">Trending Now</h2>
+<div class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth">
+<!-- Poster 1: Pathaan -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Pathaan" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 5% 95%;"/>
+</div>
+<!-- Poster 2: Echo 3 -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Echo 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 21% 95%;"/>
+</div>
+<!-- Poster 3: Peaky Blinders -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Peaky Blinders" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 36% 95%;"/>
+</div>
+<!-- Poster 4: Shadow & Bone -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Shadow and Bone" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 51% 95%;"/>
+</div>
+<!-- Poster 5: Beast -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="Beast" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 66% 95%;"/>
+</div>
+<!-- Poster 6: 83 -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="83" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 81% 95%;"/>
+</div>
+<!-- Poster 7: Gray Man / Money Heist part -->
+<div class="flex-none w-[180px] aspect-[2/3] rounded-md overflow-hidden transition-transform duration-300 hover:scale-105">
+<img alt="The Gray Man" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugFmXqGcoEABkSK1yUPiv7BR0z3nDNYASPtWdBGsdCUNay4CK7ZX3-kBTaZrk_0nakdRoW1LeUCJJdu4JEDzMNcF09Qt8mLQBQOcy9a6USqIKc4KPU654qHJFIlWU4h1MTsDe2KTrg5bWGmKdoMuBXfB2me2NBxQu25Cq7yW66qXGVZ8EcGhOMUZNe5yvBTRWqlSIU_b4U067ngzRbmKqNlvvw3SPQ-NGnQhvnb-evJaBtRwcAJd7qzXA2szrowN09YQF_Fvz6gOw" style="object-position: 96% 95%;"/>
+</div>
+</div>
+</section>
+</div>
+<!-- END: Content Rows Container -->
+</main>
+<!-- END: Main Content Area -->
+<script data-purpose="interaction-logic">
+    // Add small hover interaction for sidebar
+    const navButtons = document.querySelectorAll('aside nav button');
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navButtons.forEach(b => b.classList.remove('text-red-600', 'border-r-2', 'border-red-600', 'pr-4', '-mr-4'));
+        btn.classList.add('text-red-600', 'border-r-2', 'border-red-600', 'pr-4', '-mr-4');
+      });
+    });
+  </script>
+<style data-purpose="utility">
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  </style>
+</body></html>
